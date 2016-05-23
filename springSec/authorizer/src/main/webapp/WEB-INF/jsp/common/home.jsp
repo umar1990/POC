@@ -10,42 +10,49 @@
 		labels : [ "Completed", "Inprogress" ],
 		datasets : [ {
 			data : [ 70, 30 ],
-			backgroundColor : [ "#449d44", "#d9534f" ],
-			hoverBackgroundColor : [ "#449d44", "#d9534f" ]
+			backgroundColor : [ "#5CB85C", "#FBA83C" ],
+			hoverBackgroundColor : [ "#5CB85C", "#FBA83C" ]
 		} ]
 	};
 	$(document).ready(function() {
 		$('.ui.accordion').accordion();
-		 var ctx = $("#piechart");
+		$('#pendingDatesPop').popover({
+			html : true,
+			content : function() {
+				return $('#pendingDateContent').html();
+			}
+		});
+		var ctx = $("#piechart");
 		//  for a doughnut chart
 		var myDoughnutChart = new Chart(ctx, {
 			type : 'doughnut',
 			data : data
-		}); 
+		});
 
 	});
 </script>
 </head>
 <body>
+<div class="ui very padded raised segment">
 	<h4 class="ui horizontal divider header">
 		<span class="glyphicon glyphicon-list-alt"></span> Current Task Status
 	</h4>
 	<p>You are currently working on bacbone.js integeration. Below is
 		the current activity status</p>
-	<div class="ui grid">
-		<div class="six wide column">
+	<div class="ui stackable two column grid">
+		<div class="column">
 			<!--Div that will hold the pie chart-->
-			<div style="width: 400px; height: 200px">
+			<div class="ui image">
 				<canvas id="piechart" width="400" height="200"></canvas>
 			</div>
 		</div>
-		<div class="six wide column">
+		<div class="column">
 			<!-- accordion start -->
 			<div class="ui accordion">
-				<div class="active title">
+				<div class="title">
 					<i class="dropdown icon"></i> Inprogress Activities
 				</div>
-				<div class="active content">
+				<div class="content">
 					<p>List of activities that are inprogress</p>
 				</div>
 				<div class="title">
@@ -61,17 +68,72 @@
 	<h4 class="ui horizontal divider header">
 		<span class="glyphicon glyphicon-time"></span> Time Sheet Status
 	</h4>
-
-	<div class="progress">
-		<div class="progress-bar progress-bar-warning progress-bar-striped"
-			role="progressbar" aria-valuenow="70" aria-valuemin="0"
-			aria-valuemax="100" style="width: 70%">
-			<span class="sr-only">70% Complete (success)</span> 70%
-		</div>
+	<div class="alert alert-warning" role="alert">
+		<p>
+			You haven't completed filling the time sheet.These are the pending <span><a href="#" onclick="return false;" id="pendingDatesPop" data-toggle="popover"
+				data-placement="top" title="Pending Dates" data-trigger="focus">dates</a></span>
+		</p>
 	</div>
-	<!-- <div class="ui vertical segment"></div>
-	<div class="ui vertical segment">
-		<p></p>
+	<h4 class="ui horizontal divider header">
+		<span class="glyphicon glyphicon-copy"></span> Incoming Tasks
+	</h4>
+	<!-- <div class="ui raised segment">
+		<div class="ui grid">
+			<div class="one wide column">
+				<img src="resources/img/placeholder-200x200.png"
+					style="width: 60px; height: 60px;">
+			</div>
+			<div class="fifteen wide column">
+				<h5>Backbone Task</h5>
+				<p>Are you interested in working on backbone.js integeration
+					into our application?</p>
+				<p>
+					<a class="btn btn-success btn-sm" href="taskestimation"><span
+						class="glyphicon glyphicon-ok"> </span>Accept</a> <a
+						class="btn btn-danger btn-sm" href="#"><span
+						class="glyphicon glyphicon-remove"> </span>Decline</a>
+				</p>
+			</div>
+		</div>
 	</div> -->
+	<div class="ui items">
+	  <div class="item">
+	    <div class="ui small image">
+	      <img src="resources/img/placeholder-400x250.png">
+	    </div>
+	    <div class="middle aligned content">
+	      <div class="header">
+	        Backbone Task
+	      </div>
+	      <div class="description">
+	        <p>Are you interested in working on backbone.js integeration into our application?</p>
+	      </div>
+	      <div class="extra">
+	        <a class="btn btn-success btn-sm" href="taskestimation"><span
+						class="glyphicon glyphicon-ok"> </span>Accept</a> <a
+						class="btn btn-danger btn-sm" href="#"><span
+						class="glyphicon glyphicon-remove"> </span>Decline</a>
+	      </div>
+	    </div>
+	  </div>
+  </div>
+</div>
+	<!-- incoming tasks end -->
+	<div id="pendingDateContent" style="display: none;">
+		<table style="color: black">
+			<tr>
+				<td>04/22/2016</td>
+			</tr>
+			<tr>
+				<td>04/23/2016</td>
+			</tr>
+			<tr>
+				<td>04/24/2016</td>
+			</tr>
+			<tr>
+				<td>04/25/2016</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

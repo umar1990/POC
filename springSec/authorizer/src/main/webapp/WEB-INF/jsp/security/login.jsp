@@ -1,53 +1,70 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <!DOCTYPE html>
-    <html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Log In</title>
+<link href="resources/css/semantic.css" rel="stylesheet" type="text/css">
+<script src="resources/js/jquery.js" type="text/javascript"
+	charset="UTF-8"></script>
+<script src="resources/js/semantic.js" type="text/javascript"
+	charset="UTF-8"></script>
+<script src="resources/js/login.js" type="text/javascript"
+	charset="UTF-8"></script>
+<style type="text/css">
+body {
+	background-color: #DADADA;
+}
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Login</title>
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+body>.grid {
+	height: 100%;
+}
 
-        <script src="resources/js/jquery.js"></script>
-        <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-    </head>
+.image {
+	margin-top: -100px;
+}
 
-    <body>
-        <div class="container">
-            <div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                    </div>
-                    <div style="padding-top: 30px" class="panel-body">
-                        <div  id="login-alert" class="alert ${loginClass} col-sm-12">${loginMsg}</div>
-                        <form id="loginForm" class="form-horizontal" role="form" action="<c:url value='j_spring_security_check' />" method="post">
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input id="login-username" type="text" class="form-control" name="j_username" value="" placeholder="username or email">
-                            </div>
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i
-								class="glyphicon glyphicon-lock"></i></span> <input id="login-password" type="password" class="form-control" name="j_password" placeholder="password">
-                            </div>
-                            <div class="input-group">
-                                <div class="checkbox">
-                                    <label> <input id="login-remember" type="checkbox"
-									name="_spring_security_remember_me" value="1"> Remember me
-								</label>
-                                </div>
-                            </div>
-                            <div style="margin-top: 10px" class="form-group">
-                                <!-- Button -->
-                                <div class="col-sm-12 controls" align="center" >
-                                <input name="submit" type="submit" class="btn btn-success "
-									style="padding: 10px 100px 10px 100px; " value="Submit"/>
-							</div>
+.column {
+	max-width: 450px;
+}
+</style>
+</head>
+<body>
+	<div class="ui middle aligned center aligned grid">
+		<div class="column">
+			<h2 class="ui black image header">
+				<img src="resources/img/logo.png" class="image">
+				<div class="content">Log-in to your account</div>
+			</h2>
+			<form id="loginForm" class="ui large form" role="form"
+				action="<c:url value='j_spring_security_check' />" method="post">
+				<div class="ui stacked secondary  segment">
+					<div class="ui error message"></div>
+					<c:if test="${not empty loginMsg}">
+						<div class="ui ${loginClass} message">
+							<i class="close icon"></i> ${loginMsg}
 						</div>
-					</form>
+					</c:if>
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="user icon"></i> <input type="text" name="j_username"
+								placeholder="Username/E-mail address">
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui left icon input">
+							<i class="lock icon"></i> <input type="password"
+								name="j_password" placeholder="Password">
+						</div>
+					</div>
+					<div class="ui fluid large black submit button">Login</div>
 				</div>
-			</div>
+			</form>
+
+			<!-- <div class="ui message">
+			</div> -->
 		</div>
 	</div>
 </body>

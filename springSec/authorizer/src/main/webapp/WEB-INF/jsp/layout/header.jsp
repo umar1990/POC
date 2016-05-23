@@ -26,10 +26,10 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div>
+<!-- <div>
   <img src="resources/img/header.jpg" alt="Project Management"
 		title="Project Management" class="headerImg">
-</div>
+</div> -->
 	
 	<nav class="navbar navbar-inverse navbar-static-top" id="navbar-main">
 		<div class="container-fluid">
@@ -43,7 +43,7 @@ $(document).ready(function() {
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="home" style="margin-top: -5px;"><span><img
-						alt="Brand" src="resources/img/logo.png"></span>projectX</a>
+						alt="Brand" src="resources/img/logo.png" style="width:32px;height:32px"></span>projectX</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,11 +52,11 @@ $(document).ready(function() {
 				<ul class="nav navbar-nav">
 					<li><a href="home"><span class="glyphicon glyphicon-home"></span>
 							Home</a></li>
-					<li><a href="tasks"><span class="glyphicon glyphicon-list-alt"></span>
-							Tasks</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-time"></span>
+					<li><a href="tasks"><i class="calendar icon"></i>
+							Calendar</a></li>
+					<li><a href="tasksheet"><span class="glyphicon glyphicon-time"></span>
 							TimeSheet</a></li>
-					<li><a href="teamresources"><span class="glyphicon glyphicon-user"></span> 
+					<li><a href="teamresources"><i class="users icon"></i> 
 							Resources</a></li>
 				</ul>
 				<div class="btn-group pull-right">

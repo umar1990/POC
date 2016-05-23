@@ -1,195 +1,204 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Resources</title>
-<link href="resources/css/gridlist-view.css" rel="stylesheet"
-	type="text/css">
+<title>Insert title here</title>
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$('#list')
-								.click(
-										function(event) {
-											event.preventDefault();
-											$('.list-group-image')
-													.attr('src',
-															'resources/img/placeholder-200x150.png');
-											$('#products .item').addClass(
-													'list-group-item');
-										});
-						$('#grid')
-								.click(
-										function(event) {
-											event.preventDefault();
-											$('.list-group-image')
-													.attr('src',
-															'resources/img/placeholder-400x250.png');
-											$('#products .item').removeClass(
-													'list-group-item');
-											$('#products .item').addClass(
-													'grid-group-item');
+	$(document).ready(function() {
 
-										});
-					});
+		$('body').on('click', '.assignTask', function() {
+			$('.small.modal').modal('show');
+		});
+		$('[data-toggle="tooltip"]').tooltip()
+	});
 </script>
 </head>
 <body>
-	<div class="container">
-		<div class="well well-sm">
-			<strong>Team Members </strong>
-			<div class="btn-group">
-				<a href="#" id="list" class="btn btn-default btn-sm"><span
-					class="glyphicon glyphicon-th-list"> </span>List</a> <a href="#"
-					id="grid" class="btn btn-default btn-sm"><span
-					class="glyphicon glyphicon-th"></span>Grid</a>
+	<div class="ui raised segment">
+		<div class="ui grid">
+			<div class="ten wide column">
+				<h3>Team Members</h3>
 			</div>
-			<div class="btn-group pull-right">
-				<a class="btn btn-success btn-sm" href="#"><span
-					class="glyphicon glyphicon-plus"></span>Add Member</a>
+			<div class="six wide column">
+				<button class="ui blue icon button right floated">
+					<i class="add user icon"></i>&nbsp;Add Member
+				</button>
 			</div>
 		</div>
-		<div id="products" class="row list-group">
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Mohamed
-							Ismail</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on Showcase Overview.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Kesavan R</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on logging module.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Balchendar</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on DB issues.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Raja R</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on Context Handler.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Pritish J</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on Context Handler.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="item  col-xs-4 col-lg-4">
-				<div class="thumbnail">
-					<img class="group list-group-image"
-						src="resources/img/placeholder-400x250.png" alt="" />
 
-					<div class="caption">
-						<h4 class="group inner list-group-item-heading">Sathish Babu</h4>
-						<p class="group inner list-group-item-text">Senior Developer</p>
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								<p class="group inner list-group-item-text">Currently
-									working on Context Handler.</p>
-							</div>
-							<div class="col-xs-12 col-md-6">
-								<a class="btn btn-warning btn-sm" href="#"><span
-									class="glyphicon glyphicon-pencil"> </span>Edit</a> <a
-									class="btn btn-danger btn-sm" href="#"><span
-									class="glyphicon glyphicon-remove"> </span>Remove</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
+	<div class="ui padded segment">
+		<div class="ui divided items">
+			<div class="item">
+				<div class="image">
+					<img src="resources/img/placeholder-400x250.png">
+				</div>
+				<div class="content">
+					<a class="header">Mohamed Ismail</a>
+					<div class="meta">
+						<span class="cinema">Senior Developer</span>
+					</div>
+					<div class="description">
+						<p>Currently working on backbone.js integeration</p>
+					</div>
+					<div class="extra">
+						<a
+							class="ui right floated circular inverted red compact  icon button"
+							title="remove" data-toggle="tooltip"> <span
+							class="glyphicon glyphicon-remove" style="margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular yellow compact  icon button"
+							title="edit profile" data-toggle="tooltip"> <span
+							class="glyphicon glyphicon-pencil"
+							style="color: black; margin-right: 0px;"></span>
+						</a> <a
+							class="ui right floated circular  green compact  icon button assignTask"
+							title="assign task" data-toggle="tooltip"> <span
+							class="glyphicon glyphicon-list-alt"
+							style="color: black; margin-right: 0px;"></span>
+						</a>
+						<div class="ui label">Java</div>
+						<div class="ui label">Spring</div>
+						<div class="ui label">Hibernate</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="resources/img/placeholder-400x250.png">
+				</div>
+				<div class="content">
+					<a class="header">Kesavan</a>
+					<div class="meta">
+						<span class="cinema">Senior Developer</span>
+					</div>
+					<div class="description">
+						<p>Currently working on logging module</p>
+					</div>
+					<div class="extra">
+						<a
+							class="ui right floated circular inverted red compact  icon button">
+							<span class="glyphicon glyphicon-remove"
+							style="margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular yellow compact  icon button">
+							<span class="glyphicon glyphicon-pencil"
+							style="color: black; margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular  green compact  icon button">
+							<span class="glyphicon glyphicon-list-alt"
+							style="color: black; margin-right: 0px;"></span>
+						</a>
+						<div class="ui label">Java</div>
+						<div class="ui label">Spring</div>
+						<div class="ui label">Hibernate</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="resources/img/placeholder-400x250.png">
+				</div>
+				<div class="content">
+					<a class="header">Balchendar</a>
+					<div class="meta">
+						<span class="cinema">Senior Developer</span>
+					</div>
+					<div class="description">
+						<p>Currently working on letters and template</p>
+					</div>
+					<div class="extra">
+						<a
+							class="ui right floated circular inverted red compact  icon button">
+							<span class="glyphicon glyphicon-remove"
+							style="margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular yellow compact  icon button">
+							<span class="glyphicon glyphicon-pencil"
+							style="color: black; margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular  green compact  icon button">
+							<span class="glyphicon glyphicon-list-alt"
+							style="color: black; margin-right: 0px;"></span>
+						</a>
+						<div class="ui label">Java</div>
+						<div class="ui label">Spring</div>
+						<div class="ui label">Hibernate</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="resources/img/placeholder-400x250.png">
+				</div>
+				<div class="content">
+					<a class="header">Raja R</a>
+					<div class="meta">
+						<span class="cinema">Senior Developer</span>
+					</div>
+					<div class="description">
+						<p>Currently working on letters and template</p>
+					</div>
+					<div class="extra">
+						<a
+							class="ui right floated circular inverted red compact  icon button">
+							<span class="glyphicon glyphicon-remove"
+							style="margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular yellow compact  icon button">
+							<span class="glyphicon glyphicon-pencil"
+							style="color: black; margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular  green compact  icon button">
+							<span class="glyphicon glyphicon-list-alt"
+							style="color: black; margin-right: 0px;"></span>
+						</a>
+						<div class="ui label">Java</div>
+						<div class="ui label">Spring</div>
+						<div class="ui label">Hibernate</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="resources/img/placeholder-400x250.png">
+				</div>
+				<div class="content">
+					<a class="header">Sathish P</a>
+					<div class="meta">
+						<span class="cinema">Senior Developer</span>
+					</div>
+					<div class="description">
+						<p>Currently working on logging module</p>
+					</div>
+					<div class="extra">
+						<a
+							class="ui right floated circular inverted red compact  icon button">
+							<span class="glyphicon glyphicon-remove"
+							style="margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular yellow compact  icon button">
+							<span class="glyphicon glyphicon-pencil"
+							style="color: black; margin-right: 0px;"></span>
+						</a> <a class="ui right floated circular  green compact  icon button">
+							<span class="glyphicon glyphicon-list-alt"
+							style="color: black; margin-right: 0px;"></span>
+						</a>
+						<div class="ui label">Java</div>
+						<div class="ui label">Spring</div>
+						<div class="ui label">Hibernate</div>
+					</div>
+				</div>
+			</div>
 
+		</div>
+		<!-- assign model -->
+		<div class="ui small modal">
+			<div class="header">Delete Your Account</div>
+			<div class="content">
+				<p>Are you sure you want to delete your account</p>
+			</div>
+			<div class="actions">
+				<div class="ui negative button">No</div>
+				<div class="ui positive button">Yes</div>
+			</div>
+		</div>
+		<!-- assign model end-->
+	</div>
 
 </body>
 </html>

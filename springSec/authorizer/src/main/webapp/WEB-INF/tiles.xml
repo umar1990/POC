@@ -22,6 +22,14 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/common/teamresources.jsp" />
 	</definition>
 	
+	<definition name="tasksheet" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/common/tasksheet.jsp" />
+	</definition>
+	
+	<definition name="taskestimation" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/common/taskinfo.jsp" />
+	</definition>
+	
 	<definition name="editprofile" extends="DefaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/jsp/common/editprofile.jsp" />
 	</definition>

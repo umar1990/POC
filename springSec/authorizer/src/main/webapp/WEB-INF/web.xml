@@ -14,9 +14,20 @@
 		<servlet-name>authorizer</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	 <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/authorizer-servlet.xml,
+			/WEB-INF/authorizer-security.xml
+		</param-value>
+	</context-param> 
+
 	<!-- Spring Security -->
-	 <filter>
+	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
@@ -24,18 +35,7 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-	</listener>
-	
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/authorizer-security.xml
-		</param-value>
-	</context-param>
+
 	<!-- Welcome file -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

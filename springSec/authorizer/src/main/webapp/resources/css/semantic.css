@@ -8,6 +8,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
+@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 /*!
  * # Semantic UI 2.1.7 - Reset
@@ -13238,7 +13239,7 @@ ul.ui.list li:before,
   top: auto;
   left: auto;
   margin-left: -1.25rem;
-  content: '•';
+  content: '>';
   opacity: 1;
   color: inherit;
   vertical-align: top;
@@ -21867,7 +21868,7 @@ Floated Menu / Item
 
 .ui.message .list:not(.ui) li:before {
   position: absolute;
-  content: '•';
+  content: '>';
   left: -1em;
   height: 100%;
   vertical-align: baseline;
