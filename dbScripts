@@ -1,0 +1,153 @@
+DROP DATABASE IF EXISTS authorizerdb;
+CREATE DATABASE authorizerdb;
+CREATE TABLE authorizerdb.events (
+	id int(10) NOT NULL auto_increment,
+	event_title varchar(255),
+	event_from datetime,
+	event_to datetime,
+	event_allday tinyint(3) DEFAULT 0,
+	user_id int(10),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.project_activity (
+	id int(10) NOT NULL auto_increment,
+	activity varchar(255),
+	phase_id int(10),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.project_information (
+	id int(10) NOT NULL auto_increment,
+	business_unit varchar(255),
+	cost_code varchar(255),
+	proj_name varchar(255),
+	proj_location varchar(255),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.project_phase (
+	id int(10) NOT NULL auto_increment,
+	phase varchar(25),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.roles (
+	id int(10) NOT NULL auto_increment,
+	role varchar(255),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.skillset (
+	id int(10) NOT NULL auto_increment,
+	skill varchar(40),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.task (
+	id int(10) NOT NULL auto_increment,
+	task_name varchar(255),
+	task_desc varchar(255),
+	task_created_at date,
+	task_created_by varchar(255),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.user_information (
+	id int(10) NOT NULL auto_increment,
+	user_id int(10),
+	name varchar(255),
+	email varchar(255),
+	gender varchar(25),
+	dob date,
+	nationality varchar(25),
+	place varchar(25),
+	marital_status varchar(25),
+	skill varchar(255),
+	project_id int(10),
+	grade varchar(25),
+	designation varchar(255),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.user_roles (
+	id int(10) NOT NULL auto_increment,
+	user_id int(10),
+	role_id int(10),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.user_skills (
+	id int(10) NOT NULL auto_increment,
+	user_info_id int(10),
+	skillset_id int(10),
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE authorizerdb.users (
+	id int(10) NOT NULL auto_increment,
+	username varchar(255),
+	password varchar(255),
+	enabled tinyint(3) DEFAULT 1,
+	PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (1, 'Usecase discussion', 1);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (2, 'Usecase review/clarifications', 1);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (3, 'Analysis', 2);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (4, 'Detail design documentaion', 2);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (5, 'Review', 2);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (6, 'Rework', 2);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (7, 'Coding', 3);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (8, 'Junit', 3);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (9, 'Review', 3);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (10, 'Rework', 3);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (11, 'Testcase preparation', 4);
+INSERT INTO authorizerdb.project_activity(id, activity, phase_id) VALUES (12, 'Testcase review/rework', 4);
+INSERT INTO authorizerdb.project_phase(id, phase) VALUES (1, 'Requirement');
+INSERT INTO authorizerdb.project_phase(id, phase) VALUES (2, 'Design');
+INSERT INTO authorizerdb.project_phase(id, phase) VALUES (3, 'Development');
+INSERT INTO authorizerdb.project_phase(id, phase) VALUES (4, 'Testing');
+INSERT INTO authorizerdb.roles(id, role) VALUES (1, 'MANAGER');
+INSERT INTO authorizerdb.roles(id, role) VALUES (2, 'TECH_LEAD');
+INSERT INTO authorizerdb.roles(id, role) VALUES (3, 'SENIOR_DEVELOPER');
+INSERT INTO authorizerdb.roles(id, role) VALUES (4, 'DEVELOPER');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (7, 'Ajax');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (11, 'Backbone');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (9, 'DB2');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (3, 'Hibernate');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (4, 'Html');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (1, 'Java');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (5, 'JavaScript');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (6, 'Jquery');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (10, 'MySQL');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (8, 'Oracle DB');
+INSERT INTO authorizerdb.skillset(id, skill) VALUES (2, 'Spring');
+INSERT INTO authorizerdb.user_roles(id, user_id, role_id) VALUES (1, 1, 1);
+INSERT INTO authorizerdb.users(id, username, password, enabled) VALUES (1, 'Mohamed.Ismail@lntinfotech.com', '$2a$10$EduspOO97f5xMCOuVTaagu.aNlFzv52fkMbW4T7JLvQ/YLxFGrOnK', 1);
+ALTER TABLE authorizerdb.events
+	ADD FOREIGN KEY (user_id) 
+	REFERENCES users (id);
+
+
+ALTER TABLE authorizerdb.project_activity
+	ADD FOREIGN KEY (phase_id) 
+	REFERENCES project_phase (id);
+
+
+ALTER TABLE authorizerdb.user_information
+	ADD FOREIGN KEY (project_id) 
+	REFERENCES project_information (id);
+
+ALTER TABLE authorizerdb.user_information
+	ADD FOREIGN KEY (user_id) 
+	REFERENCES users (id);
+
+
+ALTER TABLE authorizerdb.user_roles
+	ADD FOREIGN KEY (role_id) 
+	REFERENCES roles (id);
+
+ALTER TABLE authorizerdb.user_roles
+	ADD FOREIGN KEY (user_id) 
+	REFERENCES users (id);
+
+
+ALTER TABLE authorizerdb.user_skills
+	ADD FOREIGN KEY (skillset_id) 
+	REFERENCES skillset (id);
+
+ALTER TABLE authorizerdb.user_skills
+	ADD FOREIGN KEY (user_info_id) 
+	REFERENCES user_information (id);
+
+
